@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>codePlayer</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <ul class="mainContent">
+                <li><a href="#">Code Player</a></li>
+                <li id="toggles">
+                    <ul class="actions">
+                        <li class="selected">HTML</li>
+                        <li>CSS</li>
+                        <li>JS</li>
+                        <li class="selected">RESULT</li>
+                    </ul>
+                </li>
+                <li><button class="btn">RUN</button></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Setup Editors -->
+    <div class="setup">
+        <div id="HTMLcode" class="code-container">
+            <span class="water-mark">HTML</span>
+            <textarea id="html"></textarea>
+        </div>
+        <div id="CSScode" class="code-container">
+            <span class="water-mark">CSS</span>
+            <textarea id="css"></textarea>
+        </div>
+        <div id="JScode" class="code-container">
+            <span class="water-mark">JS</span>
+            <textarea id="js"></textarea>
+        </div>
+        <div id="RESULTcode" class="code-container">
+            <span class="water-mark">RESULT</span>
+            <span id="comment">/ / your output will display here . . .</span>
+            <iframe id="display"></iframe>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/mainCode.js"></script>
+</body></html>

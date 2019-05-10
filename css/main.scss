@@ -1,0 +1,154 @@
+@import '_normalize';
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+$theme_colors: (primary: #3398DB,
+secondary: #ECF0F1,
+selected: #94A5A6);
+
+@mixin padding-rules($tp-bt, $lr) {
+    padding-top: $tp-bt;
+    padding-bottom: $tp-bt;
+    padding-left: $lr;
+    padding-right: $lr;
+}
+
+@mixin radius-rules($tp-bt, $lr) {
+    border-top-left-radius: $tp-bt;
+    border-top-right-radius: $lr;
+    border-bottom-left-radius: $tp-bt;
+    border-bottom-right-radius: $lr;
+}
+
+%distribute {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    font-family: 'Montserrat'
+}
+
+header {
+    min-width: 1170px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: map-get($theme_colors, 'secondary');
+    @include padding-rules(.5rem, 0);
+
+
+    .container {
+        max-width: 1170px;
+        margin: 0 auto;
+
+        ul.mainContent {
+            @extend %distribute;
+
+            li a {
+                font-size: 25px;
+                font-weight: bold;
+                color: map-get($theme_colors, 'primary');
+                text-decoration: none;
+            }
+
+            #toggles .actions {
+                @extend %distribute;
+
+                li {
+                    @include padding-rules(.3rem, 2.5rem);
+                    background-color: #FFF;
+                    font-size: 11px;
+                    color: #3398DB;
+                    cursor: pointer;
+                }
+
+                li:first-child {
+                    @include radius-rules(28px, 0);
+                }
+
+                li:last-child {
+                    @include radius-rules(0, 28px);
+                }
+
+            }
+
+            .btn {
+                @include padding-rules(6px, 30px);
+                @include radius-rules(28px, 28px);
+                border: none;
+                color: #FFF;
+                background-color: map-get($theme_colors, 'primary');
+                font-size: 13px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                cursor: pointer;
+
+
+            }
+        }
+    }
+
+}
+
+.selected {
+    background-color: map-get($theme_colors, 'selected') !important;
+    color: #FFF !important;
+}
+
+.setup {
+
+    .code-container {
+        width: 50%;
+        float: left;
+        position: relative;
+
+        .water-mark {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            @include padding-rules(.1rem, 1.5rem);
+            background-color: map-get($theme_colors, 'selected');
+            font-size: 11px;
+            color: #FFF;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            border-right: 1px solid map-get($theme_colors, 'primary');
+            @include padding-rules(2rem, 1rem);
+            font-size: 1.2em;
+            font-family: 'Montserrat';
+
+        }
+
+        #display {
+            width: 100%;
+            height: 100%;
+            border: none;
+            @include padding-rules(2rem, 0);
+        }
+
+        #comment {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            opacity: .3;
+            font-size: 1.1rem
+        }
+    }
+
+}
